@@ -1,0 +1,20 @@
+package com.karasword.architecture2
+
+import android.databinding.DataBindingUtil
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import com.karasword.architecture2.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding:ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_main)
+        val kullanici=Kullanici("Mert","Oğuzhan")
+        binding.kullanici= kullanici
+        //binding.user = kullanici
+        //setContentView(R.layout.activity_main)
+    }
+}
