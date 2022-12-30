@@ -1,0 +1,3 @@
+package com.karasword.architecture2
+
+class Kullanici(var ad:String, var soyad:String)
