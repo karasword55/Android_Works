@@ -11,12 +11,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
         binding=ActivityMainBinding.inflate(layoutInflater)
         var view = binding.root
         setContentView(view)
-        
+
         Toast.makeText(this,
-            "${binding.btn1.text.toString()}",Toast.LENGTH_LONG).show()
+                "${binding.btn1.text.toString()}",Toast.LENGTH_LONG).show()
+
+        binding.btn1.text  ="Selam"
+        Toast.makeText(this,
+                "${binding.btn1.text.toString()}",Toast.LENGTH_LONG).show()
     }
 }
