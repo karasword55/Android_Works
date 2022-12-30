@@ -1,0 +1,22 @@
+package com.karasword.architecture
+
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Toast
+import com.karasword.architecture.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        var view = binding.root
+        setContentView(view)
+        
+        Toast.makeText(this,
+            "${binding.btn1.text.toString()}",Toast.LENGTH_LONG).show()
+    }
+}
