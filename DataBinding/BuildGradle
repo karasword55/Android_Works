@@ -1,0 +1,4 @@
+dataBinding{
+
+        enabled true
+}
