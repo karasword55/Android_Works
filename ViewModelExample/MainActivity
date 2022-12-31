@@ -1,0 +1,26 @@
+class MainActivity : AppCompatActivity(){
+
+
+    private lateinit var binding:ActivityMainBinding
+    //private lateinit var viewModel:KullaniciViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //var viewModelStore1=androidx.lifecycle.ViewModelStore()
+        //var viewModel= androidx.lifecycle.ViewModelProvider(this).get(KullaniciViewModel::class.java)
+        var viewModel=ViewModelProvider(this).get(KullaniciViewModel::class.java)
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        var view = binding.root
+        //viewModel.topla(17)
+        binding.sonuc=viewModel.topla(47)
+        //binding.textView1.text=viewModel.topla(47)
+        setContentView(view)
+
+
+        /**binding.btnTopla.setOnClickListener {
+            val kullanici=KullaniciViewModel(1,6)
+            kullanici.topla(13)
+        }*/
+
+        //setContentView(R.layout.activity_main)
+    }
