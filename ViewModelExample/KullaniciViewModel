@@ -1,0 +1,9 @@
+class KullaniciViewModel(): ViewModel() {
+    var birinciSayi:Int=7
+    //var ikinciSayi:Int=sayi2
+
+
+    public fun topla(sayi3:Int):String{
+        return (birinciSayi+sayi3).toString()
+    }
+}
