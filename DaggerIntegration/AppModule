@@ -1,0 +1,22 @@
+package com.karasword.injection2
+
+import com.karasword.injection2.Repositories.KullaniciRepository
+import com.karasword.injection2.ViewModels.KullaniciViewModel
+import dagger.Module
+import dagger.Provides
+
+@Module
+class AppModule {
+
+    @Provides
+    fun provideKullaniciRepository():KullaniciRepository{
+        return KullaniciRepository()
+    }
+
+    @Provides
+    fun provideKullaniciViewModel(repository:KullaniciRepository):KullaniciViewModel{
+        return KullaniciViewModel(repository)
+    }
+
+
+}
