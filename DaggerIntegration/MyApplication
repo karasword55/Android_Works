@@ -1,0 +1,11 @@
+package com.karasword.injection2
+
+import android.app.Application
+
+class MyApplication: Application() {
+
+    //val appComponent = DaggerKullaniciViewModelComponent.create()
+    val appComponent = DaggerAppComponent.create()
+
+
+}
