@@ -1,0 +1,14 @@
+package com.karasword.injection2.ViewModels
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import com.karasword.injection2.Repositories.KullaniciRepository
+import javax.inject.Inject
+
+class KullaniciViewModel @Inject constructor(var repository:KullaniciRepository): ViewModel(){
+    
+    fun kaydet(ad:String,soyad:String){
+        repository.save(ad,soyad)
+    }
+}
