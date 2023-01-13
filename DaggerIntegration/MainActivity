@@ -1,0 +1,34 @@
+package com.karasword.injection2
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.karasword.injection2.Repositories.KullaniciRepository
+import com.karasword.injection2.ViewModels.KullaniciViewModel
+import com.karasword.injection2.databinding.ActivityMainBinding
+import javax.inject.Inject
+
+
+class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var viewModel: KullaniciViewModel
+    lateinit var binding: ActivityMainBinding
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        (applicationContext as MyApplication).appComponent.inject(this)
+        //(applicationContext as MyApplication).kullaniciRepositoryComponent.inject2(this)
+        super.onCreate(savedInstanceState)
+        //DaggerAppComponent.create().inject(this)
+
+        //viewModel= ViewModelProvider(this).get(KullaniciViewModel::class.java)
+
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        binding.ad="Ayşe"
+        binding.soyad="XXX"
+
+        setContentView(R.layout.activity_main)
+    }
+}
