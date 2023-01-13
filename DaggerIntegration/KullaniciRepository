@@ -1,0 +1,37 @@
+package com.karasword.injection2.Repositories
+
+import android.util.Log
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.karasword.injection2.Models.Kullanici
+import java.util.*
+import javax.inject.Inject
+
+class KullaniciRepository{
+    var db: FirebaseFirestore
+    var items: HashMap<String, Any>
+    var collectionReference: CollectionReference
+    init {
+        db= FirebaseFirestore.getInstance()
+        items = HashMap<String,Any>()
+        collectionReference=db.collection("Kullanicilar")
+    }
+
+    fun save(ad:String,soyad:String){
+        val kullanici= Kullanici(ad,soyad)
+        items.put("kullaniciAdi", ad)
+        items.put("kullaniciSoyadi",soyad)
+
+        try {
+
+            collectionReference.add(items).addOnSuccessListener {
+                Log.i("tag1","has been added")
+            }.addOnFailureListener{
+                Log.i("tag1","has not been added")
+            }
+
+        }catch (e:Exception){
+            Log.i("tag55","error çıktı")
+        }
+    }
+}
